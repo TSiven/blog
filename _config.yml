@@ -86,4 +86,4 @@ theme: next
 deploy:
   type: git
   repository: git@github.com:TSiven/bolg.git
-  branch: pages
+  branch: master
