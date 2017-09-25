@@ -1,15 +1,14 @@
 ---
 title: 使用AOP 实现Redis缓存注解，支持SPEL
-date: 2017-09-10 12:11:36
 tags:
- - JAVA
- - Redis
- - Spring
- - AOP
-categories: 
- - JAVA
- - Spring
- - AOP
+  - JAVA
+  - Redis
+  - Spring
+  - AOP
+categories:
+  - JAVA
+permalink: 'using-aop-to-implement-redis-cache-anotations,-suport-spel'
+date: 2017-09-10 12:11:36
 ---
 
 公司项目对Redis使用比较多，因为之前没有做AOP，所以缓存逻辑和业务逻辑交织在一起，维护比较艰难

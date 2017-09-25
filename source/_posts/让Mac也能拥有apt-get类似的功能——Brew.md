@@ -1,11 +1,12 @@
 ---
 title: 让Mac也能拥有apt-get类似的功能——Brew
-date: 2017-09-05 21:03:13
-tags: 
+tags:
   - MAC OS
   - Brew
-categories: 
+categories:
   - MAC OS
+permalink: let-mac-also-have-a-similar-function-of-apt-get-brew
+date: 2017-09-05 21:03:13
 ---
 原文地址：http://snowolf.iteye.com/blog/774312
 

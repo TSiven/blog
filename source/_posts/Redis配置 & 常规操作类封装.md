@@ -1,12 +1,12 @@
 ---
 title: Redis配置 & 常规操作类封装
-date: 2017-09-10 12:21:32
 tags:
- - JAVA
- - Redis
-categories: 
- - JAVA
- - Redis
+  - JAVA
+  - Redis
+categories:
+  - JAVA
+permalink: redis-configuration
+date: 2017-09-10 12:21:32
 ---
 
 

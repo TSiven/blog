@@ -1,12 +1,12 @@
 ---
 title: Spring通过ApplicationContext主动获取bean
-date: 2017-09-10 11:40:41
 tags:
- - JAVA
- - Spring
-categories: 
- - JAVA
- - Spring
+  - JAVA
+  - Spring
+categories:
+  - JAVA
+permalink: spring-actively-gets-bean-through-aplicationcontext
+date: 2017-09-10 11:40:41
 ---
 
 最近在做项目的时候我发现一个问题：Spring的IOC容器不能在Web中被引用(或者说不能被任意地引用)。我们在配置文件中让Spring自动装配，但并没有留住ApplicationContext的实例。我们如果希望在我们的项目中任何位置都能拿到同一个ApplicationContext来获取IOC容器中的资源，就要让Spring将上下文环境填充到我们能获取的地方，比如下面的做法：

@@ -1,12 +1,13 @@
 ---
 title: 两台Linux服务器之间通过SCP传输文件夹（无须密码验证）
+tags:
+  - Linux
+  - SCP
+categories:
+  - Linux
+permalink: >-
+  the-folder-is-transmited-through-scp-betwen-two-linux-servers-(without-pasword-authentication)
 date: 2017-09-05 21:00:10
-tags: 
-  - Linux
-  - SCP
-categories: 
-  - Linux
-  - SCP
 ---
 
 原文参考：http://buddie.iteye.com/blog/1988730

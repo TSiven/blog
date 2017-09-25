@@ -1,13 +1,14 @@
 ---
 title: Redis Sentinel集群方案--单机版
-date: 2017-09-15 08:46:51
 tags:
- - Redis
- - Sentinel
- - Redis 集群
-categories: 
- - Redis
- - Sentinel
+  - Redis
+  - Sentinel
+  - Redis 集群
+  - 哨兵模式
+categories:
+  - Redis
+permalink: redis-sentinel-cluster-solutions-stand-alone-version
+date: 2017-09-15 08:46:51
 ---
 
 > 简单介绍下Redis-sentinel：

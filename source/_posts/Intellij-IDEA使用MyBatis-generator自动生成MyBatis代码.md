@@ -1,13 +1,13 @@
 ---
 title: Intellij IDEA使用MyBatis-generator自动生成MyBatis代码
-date: 2017-09-12 14:07:12
 tags:
-- IDEA
-- Maven
-- MyBatis
-categories: 
-- JAVA
-- Maven
+  - IDEA
+  - Maven
+  - MyBatis
+categories:
+  - Maven
+permalink: intelij-idea-automaticaly-generates-mybatis-code-using-mybatis-generator
+date: 2017-09-12 14:07:12
 ---
 
 # STEP 1. 新增maven插件

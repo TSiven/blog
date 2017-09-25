@@ -1,13 +1,14 @@
 ---
 title: Spring3 整合MyBatis3 配置多数据源 动态选择SqlSessionFactory
-date: 2017-09-10 10:57:21
 tags:
- - JAVA
- - Mybatis
- - Spring
-categories: 
- - JAVA
- - Mybatis
+  - JAVA
+  - Mybatis
+  - Spring
+categories:
+  - JAVA
+permalink: >-
+  spring3-integration,-mybatis3-configuration,-multiple-data-sources,-dynamic-selection,-sqlsesionfactory
+date: 2017-09-10 10:57:21
 ---
 
 ## 摘要

@@ -15,7 +15,8 @@ timezone:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://blog.siven.net
 root: /
-permalink: /:year/:month/:day/:title/
+permalink: /:category/:title.html
+#/:year/:month/:day/:title.html
 permalink_defaults:
 
 # Directory
@@ -43,6 +44,18 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace:
+
+translate_title:
+  translate_way: baidu    #google | baidu | youdao
+  youdao_api_key: XXX
+  youdao_keyfrom: XXX
+  is_need_proxy: false     #true | false
+  proxy_url: http://localhost:8123
+
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
   
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
