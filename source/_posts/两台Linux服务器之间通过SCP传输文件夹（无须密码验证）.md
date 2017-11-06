@@ -5,8 +5,7 @@ tags:
   - SCP
 categories:
   - Linux
-permalink: >-
-  the-folder-is-transmited-through-scp-betwen-two-linux-servers-(without-pasword-authentication)
+permalink: two-linux-servers-transfer-folders-through-scp-(without-pasword-verification)
 date: 2017-09-05 21:00:10
 ---
 

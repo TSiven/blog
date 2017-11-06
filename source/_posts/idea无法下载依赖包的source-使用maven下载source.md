@@ -5,8 +5,7 @@ tags:
   - Maven
 categories:
   - Maven
-permalink: >-
-  idea-canot-download-source-that-relies-on-packages,-and-uses-maven-to-download-source
+permalink: 'idea-canot-download-dependency-pack-source,-download-source-using-maven'
 date: 2017-09-10 12:08:07
 ---
 
