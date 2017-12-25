@@ -7,7 +7,7 @@ tags:
 categories:
   - JAVA
 permalink: >-
-  spring3-integration-mybatis3-configuration-multi-data-source-dynamic-selection-of-sqlsesionfactory
+  spring3-integrated-mybatis3-configuration-multiple-data-source-dynamic-selection-sqlsesionfactory
 date: 2017-09-10 10:57:21
 ---
 

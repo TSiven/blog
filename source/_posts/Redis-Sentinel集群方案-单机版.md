@@ -7,7 +7,7 @@ tags:
   - 哨兵模式
 categories:
   - Redis
-permalink: redis-sentinel-cluster-solution-stand-alone-version
+permalink: redis-sentinel-cluster-scheme-single-version
 date: 2017-09-15 08:46:51
 ---
 

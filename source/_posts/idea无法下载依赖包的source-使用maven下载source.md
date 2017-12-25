@@ -5,7 +5,8 @@ tags:
   - Maven
 categories:
   - Maven
-permalink: 'idea-canot-download-dependency-pack-source,-download-source-using-maven'
+permalink: >-
+  idea-can't-download-the-source-of-the-dependency-package,-and-download-source-with-maven
 date: 2017-09-10 12:08:07
 ---
 

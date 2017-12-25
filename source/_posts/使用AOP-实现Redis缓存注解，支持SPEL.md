@@ -7,7 +7,7 @@ tags:
   - AOP
 categories:
   - JAVA
-permalink: using-aop-to-implement-redis-cache-anotations-and-suport-spel
+permalink: use-aop-to-implement-redis-caching-anotations-and-suport-spel
 date: 2017-09-10 12:11:36
 ---
 

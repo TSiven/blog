@@ -4,7 +4,7 @@ tags:
   - Redis
 categories:
   - Redis
-permalink: detailed-explanation-of-redis-info-parameters
+permalink: redis-info-parameter-detailed-solution
 date: 2017-09-18 11:56:22
 ---
 
