@@ -4,7 +4,8 @@ tags:
   - JAVA
 categories:
   - JAVA
-permalink: 'the-division-of-the-entity-clas-(vo,-do,-dto,-po)'
+alink: the-division-of-the-entity-class
+abbrlink: b6973370
 date: 2017-12-25 15:39:24
 ---
 

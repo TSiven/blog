@@ -6,7 +6,8 @@ tags:
   - MyBatis
 categories:
   - Maven
-permalink: intelij-idea-uses-mybatis-generator-to-automaticaly-generate-mybatis-code
+alink: intelij-idea-generate-mybatis-code
+abbrlink: bb71e7fb
 date: 2017-09-12 14:07:12
 ---
 

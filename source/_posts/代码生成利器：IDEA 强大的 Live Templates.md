@@ -4,7 +4,8 @@ tags:
   - IDEA
 categories:
   - Tools
-permalink: 'code-generation-tol:-idea-powerful-live-templates'
+alink: idea-live-templates
+abbrlink: 7d50b50c
 date: 2017-12-20 13:47:07
 ---
 

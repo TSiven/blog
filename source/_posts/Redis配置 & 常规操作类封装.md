@@ -5,7 +5,8 @@ tags:
   - Redis
 categories:
   - JAVA
-permalink: redis-configuration
+alink: redis-configuration
+abbrlink: 66a772a9
 date: 2017-09-10 12:21:32
 ---
 

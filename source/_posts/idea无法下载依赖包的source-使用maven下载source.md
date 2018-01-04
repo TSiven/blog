@@ -5,8 +5,8 @@ tags:
   - Maven
 categories:
   - Maven
-permalink: >-
-  idea-can't-download-the-source-of-the-dependency-package,-and-download-source-with-maven
+alink: idea-download-source-with-maven
+abbrlink: dc4851bc
 date: 2017-09-10 12:08:07
 ---
 

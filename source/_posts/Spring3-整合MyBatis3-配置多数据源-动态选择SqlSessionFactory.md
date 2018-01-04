@@ -6,8 +6,8 @@ tags:
   - Spring
 categories:
   - JAVA
-permalink: >-
-  spring3-integrated-mybatis3-configuration-multiple-data-source-dynamic-selection-sqlsesionfactory
+alink: spring3-myBatis3-multiple-data-sources
+abbrlink: 7fd48064
 date: 2017-09-10 10:57:21
 ---
 

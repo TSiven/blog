@@ -4,7 +4,8 @@ tags:
   - Redis
 categories:
   - Redis
-permalink: redis-info-parameter-detailed-solution
+alink: redis-info
+abbrlink: 2f4e5423
 date: 2017-09-18 11:56:22
 ---
 

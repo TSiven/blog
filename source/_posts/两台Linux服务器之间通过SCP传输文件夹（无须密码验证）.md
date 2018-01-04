@@ -5,8 +5,8 @@ tags:
   - SCP
 categories:
   - Linux
-permalink: >-
-  two-linux-servers-transfer-folders-through-scp-(without-pasword-authentication)
+alink: linux-servers-transfer-folders-through-scp
+abbrlink: '25395298'
 date: 2017-09-05 21:00:10
 ---
 
