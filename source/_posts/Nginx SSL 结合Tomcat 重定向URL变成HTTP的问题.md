@@ -12,6 +12,7 @@ categories:
   - JAVA
 ---
 
+
 > 参考资料: [《Nginx SSL 结合Tomcat 重定向URL变成HTTP的问题》](http://emacsist.github.io/2016/01/19/Nginx-SSL-结合Tomcat-重定向URL变成HTTP的问题/)
 > 以下内容对该文章进行实践的过程进行记录说明
 
@@ -105,7 +106,7 @@ req.getRequestDispatcher("/static/html/index.html").forward(request, response);
 重定向的时候, `HTTPS`协议被转为`HTTP`，测试结果不通过。
 
 
-### 方式三：终极方案
+### 实践三：终极方案
 #### Nginx 配置
 对过程一Nginx配置进行调整注释或删除`proxy_redirect`，最终如下：
 ```
@@ -121,7 +122,8 @@ location / {
 ```
 
 #### Tomcat 配置
-参看：[Tomcat配置](#过程二tomcat新增配置)
+参看：[Tomcat配置](#实践二tomcat新增配置
+)
 
 #### 测试过程
 

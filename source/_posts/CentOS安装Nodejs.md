@@ -16,21 +16,15 @@ alink: centos-install-nodejs
 wget https://npm.taobao.org/mirrors/node/v8.0.0/node-v8.0.0-linux-x64.tar.xz
 ```
 
-# 解压安装
+# 解压 & 移动目录
 ```
 tar -xvf node-v6.11.1-linux-x64.tar.xz
-```
-
-# 移动目录
-```
 mv node-v6.11.1-linux-x64 /usr/local/node
 ```
 
 # 配置环境变量
 ```
 vim /etc/profile
-
-
 
 #set for nodejs
 export NODE_HOME=/usr/local/node
