@@ -50,7 +50,7 @@ sudo make install
 3. 进入解压缩目录，执行./configure。
 4. make & make install
 
-``` bash
+```bash
 tar -zxvf zlib-1.2.6.tar.gz 
 cd zlib-1.2.6
 ./configure --prefix=/usr/local/zlib
@@ -65,7 +65,7 @@ sudo make install
 3. 进入解压缩目录，执行./config。
 4. make & make install
 
-``` bash
+```bash
 tar -zxvf openssl-1.0.1t.tar.gz
 cd openssl-1.0.1t
 sudo ./configure --prefix=/usr/local/openssl
@@ -80,18 +80,18 @@ sudo make install
 3. 进入解压缩目录，执行./configure
 4. make & make install
 
-``` bash
+```bash
 tar -zxvf nginx-1.9.15.tar.gz
 cd nginx-1.9.15
 sudo ./configure --prefix=/usr/local/nginx
 sudo make
 sudo make install
-``` 
+```
 >若安装时找不到上述依赖模块，使用--with-openssl=< openssl_dir>、--with-pcre=< pcre_dir>、--with-zlib=< zlib_dir>指定依赖的模块目录。如已安装过，此处的路径为安装目录；若未安装，则此路径为编译安装包路径，nginx将执行模块的默认编译安装。
 
 
-# 启动Nginx
-``` bash
+## 启动Nginx
+```bash
 /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
 ```
 启动`nginx`之后，浏览器中输入`http://localhost`可以验证是否安装启动成功。
@@ -143,13 +143,12 @@ Tomcat2：http://127.0.0.1:8280/
 
 
 ## 编辑配置文件
-``` bash
+```bash
 vi /usr/local/nginx/conf/nginx.conf
 ```
 
 
 ## 我的简单配置
-
 ```
 worker_processes  1;
 pid  logs/nginx.pid;
@@ -190,7 +189,7 @@ http {
 
 
 ## 常用命令
-``` bash
+```bash
 # 停止Nginx
 sudo /usr/local/nginx/sbin/nginx -s 
 # 启动Nginx
@@ -223,7 +222,7 @@ events {
 
 #设定http服务器，利用它的反向代理功能提供负载均衡支持
 http {
-     #设定mime类型,类型由mime.type文件定义
+    #设定mime类型,类型由mime.type文件定义
     include       /etc/nginx/mime.types;
     default_type  application/octet-stream;
     #设定日志格式
@@ -251,17 +250,17 @@ http {
     include /etc/nginx/sites-enabled/*;
 
     #设定负载均衡的服务器列表
-     upstream mysvr {
-    #weigth参数表示权值，权值越高被分配到的几率越大
-    #本机上的Squid开启3128端口
-    server 192.168.8.1:3128 weight=5;
-    server 192.168.8.2:80  weight=1;
-    server 192.168.8.3:80  weight=6;
+    upstream mysvr {
+        #weigth参数表示权值，权值越高被分配到的几率越大
+        #本机上的Squid开启3128端口
+        server 192.168.8.1:3128 weight=5;
+        server 192.168.8.2:80  weight=1;
+        server 192.168.8.3:80  weight=6;
     }
 
 
-   server {
-    #侦听80端口
+    server {
+        #侦听80端口
         listen       80;
         #定义使用www.xx.com访问
         server_name  www.xx.com;
@@ -269,56 +268,59 @@ http {
         #设定本虚拟主机的访问日志
         access_log  logs/www.xx.com.access.log  main;
 
-    #默认请求
-    location / {
-          root   /root;      #定义服务器的默认网站根目录位置
-          index index.php index.html index.htm;   #定义首页索引文件的名称
+        #默认请求
+        location / {
+            root   /root;      #定义服务器的默认网站根目录位置
+            index index.php index.html index.htm;   #定义首页索引文件的名称
 
-          fastcgi_pass  www.xx.com;
-         fastcgi_param  SCRIPT_FILENAME  $document_root/$fastcgi_script_name; 
-          include /etc/nginx/fastcgi_params;
+            fastcgi_pass  www.xx.com;
+            fastcgi_param  SCRIPT_FILENAME  $document_root/$fastcgi_script_name; 
+            include /etc/nginx/fastcgi_params;
         }
 
-    # 定义错误提示页面
-    error_page   500 502 503 504 /50x.html;  
-        location = /50x.html {
-        root   /root;
-    }
+        # 定义错误提示页面
+        error_page   500 502 503 504 /50x.html;  
+            location = /50x.html {
+            root   /root;
+        }
 
-    #静态文件，nginx自己处理
-    location ~ ^/(images|javascript|js|css|flash|media|static)/ {
-        root /var/www/virtual/htdocs;
-        #过期30天，静态文件不怎么更新，过期可以设大一点，如果频繁更新，则可以设置得小一点。
-        expires 30d;
-    }
-    #PHP 脚本请求全部转发到 FastCGI处理. 使用FastCGI默认配置.
-    location ~ \.php$ {
-        root /root;
-        fastcgi_pass 127.0.0.1:9000;
-        fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME /home/www/www$fastcgi_script_name;
-        include fastcgi_params;
-    }
-    #设定查看Nginx状态的地址
-    location /NginxStatus {
-        stub_status            on;
-        access_log              on;
-        auth_basic              "NginxStatus";
-        auth_basic_user_file  conf/htpasswd;
-    }
-    #禁止访问 .htxxx 文件
-    location ~ /\.ht {
-        deny all;
-    }
-     
+        #静态文件，nginx自己处理
+        location ~ ^/(images|javascript|js|css|flash|media|static)/ {
+            root /var/www/virtual/htdocs;
+            #过期30天，静态文件不怎么更新，过期可以设大一点，如果频繁更新，则可以设置得小一点。
+            expires 30d;
+        }
+        #PHP 脚本请求全部转发到 FastCGI处理. 使用FastCGI默认配置.
+        location ~ \.php$ {
+            root /root;
+            fastcgi_pass 127.0.0.1:9000;
+            fastcgi_index index.php;
+            fastcgi_param SCRIPT_FILENAME /home/www/www$fastcgi_script_name;
+            include fastcgi_params;
+        }
+        #设定查看Nginx状态的地址
+        location /NginxStatus {
+            stub_status            on;
+            access_log              on;
+            auth_basic              "NginxStatus";
+            auth_basic_user_file  conf/htpasswd;
+        }
+        #禁止访问 .htxxx 文件
+        location ~ /\.ht {
+            deny all;
+        }
      }
 }
 
-``` 
+```
+
+
+
+
 
 以上是一些基本的配置，使用Nginx最大的好处就是负载均衡，如果要使用负载均衡的话,可以修改配置http节点如下：
 
-``` 
+```
 #设定http服务器，利用它的反向代理功能提供负载均衡支持
 http {
      #设定mime类型,类型由mime.type文件定义
@@ -332,55 +334,54 @@ http {
     #。。。。。。。。。。
 
     #设定负载均衡的服务器列表
-     upstream mysvr {
-    #weigth参数表示权值，权值越高被分配到的几率越大
-    server 192.168.8.1x:3128 weight=5;#本机上的Squid开启3128端口
-    server 192.168.8.2x:80  weight=1;
-    server 192.168.8.3x:80  weight=6;
+    upstream mysvr {
+        #weigth参数表示权值，权值越高被分配到的几率越大
+        server 192.168.8.1x:3128 weight=5;#本机上的Squid开启3128端口
+        server 192.168.8.2x:80  weight=1;
+        server 192.168.8.3x:80  weight=6;
     }
 
-   upstream mysvr2 {
-    #weigth参数表示权值，权值越高被分配到的几率越大
-
-    server 192.168.8.x:80  weight=1;
-    server 192.168.8.x:80  weight=6;
+    upstream mysvr2 {
+        #weigth参数表示权值，权值越高被分配到的几率越大
+        server 192.168.8.x:80  weight=1;
+        server 192.168.8.x:80  weight=6;
     }
 
-   #第一个虚拟服务器
-   server {
-    #侦听192.168.8.x的80端口
+    #第一个虚拟服务器
+    server {
+        #侦听192.168.8.x的80端口
         listen       80;
         server_name  192.168.8.x;
 
-      #对aspx后缀的进行负载均衡请求
-    location ~ .*\.aspx$ {
+        #对aspx后缀的进行负载均衡请求
+        location ~ .*\.aspx$ {
 
-         root   /root;      #定义服务器的默认网站根目录位置
-          index index.php index.html index.htm;   #定义首页索引文件的名称
+            root   /root;      #定义服务器的默认网站根目录位置
+            index index.php index.html index.htm;   #定义首页索引文件的名称
 
-          proxy_pass  http://mysvr ;#请求转向mysvr 定义的服务器列表
+            proxy_pass  http://mysvr ;#请求转向mysvr 定义的服务器列表
 
-          #以下是一些反向代理的配置可删除.
+            #以下是一些反向代理的配置可删除.
 
-          proxy_redirect off;
+            proxy_redirect off;
 
-          #后端的Web服务器可以通过X-Forwarded-For获取用户真实IP
-          proxy_set_header Host $host;
-          proxy_set_header X-Real-IP $remote_addr;
-          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-          client_max_body_size 10m;    #允许客户端请求的最大单文件字节数
-          client_body_buffer_size 128k;  #缓冲区代理缓冲用户端请求的最大字节数，
-          proxy_connect_timeout 90;  #nginx跟后端服务器连接超时时间(代理连接超时)
-          proxy_send_timeout 90;        #后端服务器数据回传时间(代理发送超时)
-          proxy_read_timeout 90;         #连接成功后，后端服务器响应时间(代理接收超时)
-          proxy_buffer_size 4k;             #设置代理服务器（nginx）保存用户头信息的缓冲区大小
-          proxy_buffers 4 32k;               #proxy_buffers缓冲区，网页平均在32k以下的话，这样设置
-          proxy_busy_buffers_size 64k;    #高负荷下缓冲大小（proxy_buffers*2）
-          proxy_temp_file_write_size 64k;  #设定缓存文件夹大小，大于这个值，将从upstream服务器传
+            #后端的Web服务器可以通过X-Forwarded-For获取用户真实IP
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            client_max_body_size 10m;    #允许客户端请求的最大单文件字节数
+            client_body_buffer_size 128k;  #缓冲区代理缓冲用户端请求的最大字节数，
+            proxy_connect_timeout 90;  #nginx跟后端服务器连接超时时间(代理连接超时)
+            proxy_send_timeout 90;        #后端服务器数据回传时间(代理发送超时)
+            proxy_read_timeout 90;         #连接成功后，后端服务器响应时间(代理接收超时)
+            proxy_buffer_size 4k;             #设置代理服务器（nginx）保存用户头信息的缓冲区大小
+            proxy_buffers 4 32k;               #proxy_buffers缓冲区，网页平均在32k以下的话，这样设置
+            proxy_busy_buffers_size 64k;    #高负荷下缓冲大小（proxy_buffers*2）
+            proxy_temp_file_write_size 64k;  #设定缓存文件夹大小，大于这个值，将从upstream服务器传
 
-       }
+        }
 
-     }
+    }
 } 
 ```
 
@@ -389,9 +390,3 @@ http {
 [Nginx安装与使用](http://www.cnblogs.com/skynet/p/4146083.html)
 [CentOS6.5安装nginx及负载均衡配置](http://www.cnblogs.com/zhongshengzhen/p/nginx.html)
 [Mac 环境下 Nginx + Tomcat集群, 测试OK](http://my.oschina.net/vernon/blog/282925?p=1)
-
-
-
-
-
-
