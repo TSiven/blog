@@ -140,16 +140,19 @@ Tomcat2：http://127.0.0.1:8280/
 ![](http://qiniu-pic.siven.net/blog/2018-01-06-052709.png)
 
 # Nginx负载均衡配置
+
+
 ## 编辑配置文件
 ``` bash
 vi /usr/local/nginx/conf/nginx.conf
-``` 
-
-## 我的简单配置：
 ```
-#user SIVEN owner;  
+
+
+## 我的简单配置
+
+```
 worker_processes  1;
-#pid        logs/nginx.pid;
+pid  logs/nginx.pid;
 events {
     worker_connections  1024;
 }
@@ -183,7 +186,8 @@ http {
         }
     }
 }
-``` 
+```
+
 
 ## 常用命令
 ``` bash
