@@ -140,20 +140,19 @@ Tomcat2：http://127.0.0.1:8280/
 ![](http://qiniu-pic.siven.net/blog/2018-01-06-052709.png)
 
 # Nginx负载均衡配置
-编辑配置文件：
+## 编辑配置文件
 ``` bash
 vi /usr/local/nginx/conf/nginx.conf
 ``` 
 
-我的简单配置：
-```roboconf
+## 我的简单配置：
+```
 #user SIVEN owner;  
 worker_processes  1;
 #pid        logs/nginx.pid;
 events {
     worker_connections  1024;
 }
-
 
 http {
     include       mime.types;
@@ -192,11 +191,11 @@ http {
 sudo /usr/local/nginx/sbin/nginx -s 
 # 启动Nginx
 sudo /usr/local/nginx/sbin/nginx
-
 # 加载Nginx配置
 sudo /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
 ```
 
+## 访问测试
 请求`Nginx`访问地址：http://127.0.0.1:80/
 
 # Nginx配置文件详细说明
