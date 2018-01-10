@@ -14,7 +14,7 @@ categories:
 
 
 > 参考资料: [《Nginx SSL 结合Tomcat 重定向URL变成HTTP的问题》](http://emacsist.github.io/2016/01/19/Nginx-SSL-结合Tomcat-重定向URL变成HTTP的问题/)
-> 以下内容对该文章进行实践的过程进行记录说明
+> 以下内容对该文章进行实践的过程进行记录说明
 
 
 ## 问题描述
@@ -24,7 +24,7 @@ categories:
 
 
 ## 逐步实践过程
-在网上找了一些资料，有些是通过修改Nginx配置即可解决，也有只对Tomcat配置进行调整解决的... 各说不一，以下对尝试的解决过程进行记录：
+在网上找了一些资料，有些是通过修改Nginx配置即可解决，也有只对Tomcat配置进行调整解决的... 各说不一，以下对尝试的解决过程进行记录：
 
 
 ### 实践一：Nginx新增配置
@@ -61,7 +61,7 @@ server {
 HttpServletResponse resp = (HttpServletResponse)response;
 resp.sendRedirect("/static/html/index.html");
 ```
-- 使用`HTTP`协议访问`nginx`代理地址之后,URL被重定向为`HTTPS`协议了， 如下图所示:
+- 使用`HTTP`协议访问`nginx`代理地址之后,URL被重定向为`HTTPS`协议了， 如下图所示:
 ![](http://qiniu-pic.siven.net/blog/2018-01-05-095224.png)
 
 
@@ -78,11 +78,11 @@ req.getRequestDispatcher("/static/html/index.html").forward(request, response);
 
 - 测试结果与重定向一致, 无异常情况;
 
-#### 测试总结
+#### 测试总结
 实际应用场景中,如果要求`HTTP`与`HTTPS`协议共存的时候(请求的协议与响应的协议一致)就会出现`HTTP`请求被强转为`HTTPS`，尝试将Nginx配置`proxy_redirect   http:// https://;`注释，最终使用`HTTPS`协议亦无法正常跳转;
 
 
-### 实践二：Tomcat新增配置
+### 实践二：Tomcat新增配置
 >不修改Nginx的情况下, 仅对Tomcat配置进行调整
 
 在`server.xml`的`Engine`模块下面配置多一个以下的`Valve`
@@ -94,11 +94,11 @@ req.getRequestDispatcher("/static/html/index.html").forward(request, response);
 ```
 
 #### 重定向测试
-使用`HTTPS`协议访问时,最终被重定向到`HTTP`
+使用`HTTPS`协议访问时,最终被重定向到`HTTP`
 ![](http://qiniu-pic.siven.net/blog/2018-01-05-112959.png)
 
 #### 转发测试
-使用`HTTPS`协议访问，转发动作未出现问题
+使用`HTTPS`协议访问，转发动作未出现问题
 ![](http://qiniu-pic.siven.net/blog/2018-01-05-113147.png)
 
 
@@ -108,7 +108,7 @@ req.getRequestDispatcher("/static/html/index.html").forward(request, response);
 
 ### 实践三：终极方案
 #### Nginx 配置
-对过程一Nginx配置进行调整注释或删除`proxy_redirect`，最终如下：
+对过程一Nginx配置进行调整注释或删除`proxy_redirect`，最终如下：
 ```
 location / {
     proxy_pass http://test-server;
@@ -122,7 +122,7 @@ location / {
 ```
 
 #### Tomcat 配置
-参看：[Tomcat配置](#实践二tomcat新增配置
+参看：[Tomcat配置](#实践二tomcat新增配置
 )
 
 #### 测试过程
