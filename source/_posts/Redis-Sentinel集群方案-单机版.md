@@ -3,7 +3,7 @@ title: Redis Sentinel集群方案--单机版
 tags:
   - Redis
   - Sentinel
-  - Redis 集群
+  - Redis集群
   - 哨兵模式
 categories:
   - Redis
