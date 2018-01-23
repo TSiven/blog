@@ -1,5 +1,5 @@
 ---
-title: Redis配置 & 常规操作类封装
+title: Redis配置以及常规操作类封装
 tags:
   - JAVA
   - Redis
