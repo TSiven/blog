@@ -1,17 +1,18 @@
 ---
 title: Java Future模式：Callable、Future和FutureTask浅析
-date: 2018-01-31 15:21:19
 tags:
   - JAVA
   - 设计模式
   - 并发编程
 categories:
   - JAVA
+abbrlink: b1cdc354
+date: 2018-01-31 15:21:19
 ---
 
 # 前言
 在Java中一般通过继承`Thread`类或者实现`Runnable`接口这两种方式来创建多线程，但是这两种方式都有个缺陷，就是不能在执行完成后获取执行的结果，因此Java 1.5之后提供了`Callable`和`Future`接口，通过它们就可以在任务执行完毕之后得到任务的执行结果。本文会简要的介绍使用方法，然后会从源代码角度分析下具体的实现原理。
-![](http://qiniu-pic.siven.net/blog/2018-01-31-072257.jpg)
+![](http://qiniu-pic.siven.net/blog/2018-01-31-080956.png)
 
 <!-- more -->
 
@@ -55,7 +56,7 @@ public interface Future<V> {
 ![](http://qiniu-pic.siven.net/blog/2018-01-31-073411.png)
 可以看到,`FutureTask`实现了`RunnableFuture`接口，则`RunnableFuture`接口继承了`Runnable`接口和`Future`接口，所以`FutureTask`既能当做一个`Runnable`直接被`Thread`执行，也能作为`Future`用来得到`Callable`的计算结果。
 
-# 简单例子
+# 举个栗子
 `FutureTask`一般配合`ExecutorService`来使用，也可以直接通过`Thread`来使用。
 ```java
 public class UseFuture {
@@ -137,10 +138,20 @@ public class UseFuture {
 }
 ```
 
-## 执行结果
+运行结果：
 ```
 Thread [Task thread] is running
 Thread [main] is running
 Task is not done
 result is 4950
 ```
+
+
+# 总结
+`FutureTask`的实现还是比较简单的，当用户实现`Callable`接口定义好任务之后，把任务交给其他线程进行执行。FutureTask内部维护一个任务状态，任何操作都是围绕着这个状态进行，并随时更新任务状态。任务发起者调用get*()获取执行结果的时候，如果任务还没有执行完毕，则会把自己放入阻塞队列中然后进行阻塞等待。当任务执行完成之后，任务执行线程会依次唤醒阻塞等待的线程。调用cancel()取消任务的时候也只是简单的修改任务状态，如果需要中断任务执行线程的话则调用Thread.interrupt()中断任务执行线程。
+
+
+---
+
+> 参考文章
+[深入学习 FutureTask](http://www.importnew.com/25286.html)
