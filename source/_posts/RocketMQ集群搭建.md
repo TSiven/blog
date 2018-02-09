@@ -12,7 +12,8 @@ date: 2018-02-09 13:57:49
 ---
 
 # 前言
-> 推荐的几种 Broker 集群部署方式，这里的Slave 不可写，但可读，类似于 Mysql主备方式。
+
+推荐的几种`Broker`集群部署方式，这里的`Slave`不可写，但可读，类似于 Mysql主备方式。
 
 ## 多Master模式（2m-noslave）
 一个集群无Slave，全是Master，例如2个Master或者3个Master
