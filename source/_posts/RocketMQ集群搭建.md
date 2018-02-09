@@ -3,7 +3,6 @@ title: RocketMQ集群搭建
 tags:
   - RocketMQ
   - Cluster
-  - 双Master模式
   - rocketmq-console
 categories:
   - RocketMQ
