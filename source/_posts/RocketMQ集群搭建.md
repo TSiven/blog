@@ -222,13 +222,13 @@ nohup sh mqnamesrv &
 #### 启动BrokerServer A (master1)
 ```bash
 cd /usr/local/rocketmq/bin
-nohup sh mqbroker -c /usr/local/rocketmq/conf/2m-noslave/broker-a.properties &
+nohup sh mqbroker -c /usr/local/rocketmq/conf/2m-noslave/broker-a.properties >/dev/null 2>&1 &
 ```
 
 #### 启动BrokerServer B (master2)
 ```bash
 cd /usr/local/rocketmq/bin
-nohup sh mqbroker -c /usr/local/rocketmq/conf/2m-noslave/broker-b.properties &
+nohup sh mqbroker -c /usr/local/rocketmq/conf/2m-noslave/broker-b.properties >/dev/null 2>&1 &
 ```
 **注：** 在master2上的名称为`broker-b.properties`
 
