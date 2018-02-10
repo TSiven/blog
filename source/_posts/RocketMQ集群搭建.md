@@ -64,9 +64,39 @@ vim /etc/hosts
 10.211.55.15 rocketmq-nameserver2
 10.211.55.15 rocketmq-master2
 ```
-重启网卡
+配置完成后, 重启网卡
 ```bash
 service network restart
+```
+
+### 防火墙配置
+宿主机需要远程访问虚拟机的rocketmq服务和web服务，需要开放相关的端口号，简单粗暴的方式是直接关闭防火墙
+```bash
+# 关闭防火墙
+service iptables stop 
+# 查看防火墙的状态
+service iptables status 
+# 启动防火墙
+service iptables start 
+```
+
+或者为了安全，只开放特定的端口号，RocketMQ默认使用3个端口：9876 、10911、10912。如果防火墙没有关闭的话，那么防火墙就必须开放这些端口：
+- `name server` 默认使用 9876 端口
+- `master` 默认使用 10911 端口
+- `slave` 默认使用10912 端口 (当前集群模式可不开启)
+
+执行以下命令：
+```bash
+# 开放name server默认端口
+/sbin/iptables -I INPUT -p tcp --dport 9876 -j ACCEPT  
+# 开放master默认端口
+/sbin/iptables -I INPUT -p tcp --dport 10911 -j ACCEPT  
+# 开放slave默认端口 (当前集群模式可不开启)
+/sbin/iptables -I INPUT -p tcp --dport 10912 -j ACCEPT  
+# 保存配置
+service iptables save  
+# 重启防火墙
+service iptables restart  
 ```
 
 ### 下载并解压
@@ -285,7 +315,17 @@ mvn clean package -Dmaven.test.skip=true
 ![](http://qiniu-pic.siven.net/blog/2018-02-09-084727.png)
 
 ## 启动运行
-启动rocketmq-console，执行命令：
+在启动之前, 需要在目标的RocketMQ集群应用服务器或开放端口10909端口
+```
+# fastListenPort 主要是fastRemotingServer服务使用
+/sbin/iptables -I INPUT -p tcp --dport 10909 -j ACCEPT  
+# 保存配置
+service iptables save  
+# 重启防火墙
+service iptables restart 
+```
+
+启动rocketmq-console：
 ```bash
 java -jar rocketmq-console-ng-1.0.0.jar --server.port=8080 --rocketmq.config.namesrvAddr=10.211.55.14:9876;10.211.55.15:9876
 ```
