@@ -1,5 +1,5 @@
 ---
-title: Nginx的安装及配置详解
+title: Nginx安装及配置详解
 tags:
   - Linux
   - CentOS
