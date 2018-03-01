@@ -10,12 +10,15 @@ abbrlink: 3347f9ca
 date: 2018-01-06 12:00:38
 ---
 
-
-![](http://qiniu-pic.siven.net/blog/2018-03-01-120513.png)
-
 # 前言
+
 `Nginx`是一个web服务器也可以用来做负载均衡及反向代理使用，目前使用最多的就是负载均衡，具体简介我就不介绍了百度一下有很多，下面直接进入安装步骤；
 
+- Nginx相关地址
+源码：https://trac.nginx.org/nginx/browser
+官网：http://www.nginx.org/
+
+<!-- more -->
 
 # 安装Nginx及相关组件
 
@@ -25,7 +28,6 @@ date: 2018-01-06 12:00:38
 - rewrite模块需要 pcre 库 
 - ssl 功能需要openssl库
 
-<!-- more -->
 
 ## 下载安装PCRE
 1. 获取pcre编译安装包，在[官网](http://www.pcre.org/)上可以获取当前最新的版本 

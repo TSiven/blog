@@ -19,7 +19,8 @@ date: 2018-01-06 13:00:38
 1. 解决`Tomcat`的负载均衡问题； 
 2. 当我上线的时候, 启动`Tomcat`, 能够做到外部访问不间断；
 
-![](http://qiniu-pic.siven.net/blog/2018-03-01-122840.jpg)
+
+![](http://qiniu-pic.siven.net/blog/2018-03-01-122855.jpg)
 
 <!-- more -->
 
