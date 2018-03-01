@@ -18,8 +18,8 @@ wget https://npm.taobao.org/mirrors/node/v8.0.0/node-v8.0.0-linux-x64.tar.xz
 
 # 解压 & 移动目录
 ```
-tar -xvf node-v6.11.1-linux-x64.tar.xz
-mv node-v6.11.1-linux-x64 /usr/local/node
+tar -xvf node-v8.0.0-linux-x64.tar.xz
+mv node-v8.0.0-linux-x64 /usr/local/node
 ```
 
 # 配置环境变量
