@@ -50,3 +50,5 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 参考资料：
 - [hexo 摸爬滚打之进阶教程](http://muyunyun.cn/posts/f55182c5/#more)
 - [Hexo next 主题的 local search 功能失效，点击搜索链接无法弹出叠加层](https://www.v2ex.com/t/298727)
+- [hexo 构建静态文件无法生成 index.html等文件](http://blog.csdn.net/huihut/article/details/73196343)
+- [Hexo进程守护](https://zhuanlan.zhihu.com/p/21518843)
