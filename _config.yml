@@ -102,9 +102,11 @@ pagination_dir: page
 #   format: html
 #   limit: 10000
 
-
+  
 algolia:
   applicationID: '825YYD4YJF'
+  apiKey: '41b8dad392ff7369dc6ebe0e31ceee1b'
+  adminApiKey: 'df2bcab3c78220f1200166399ae4cd9b'
   indexName: 'blog.siven.net'
   chunkSize: 5000
 
