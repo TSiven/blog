@@ -7,7 +7,7 @@ tags:
 categories:
   - Linux
 abbrlink: 3347f9ca
-date: 2018-01-06 12:00:38
+date: 2018-01-05 12:00:38
 ---
 
 # 前言
