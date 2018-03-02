@@ -96,30 +96,46 @@ time_format: HH:mm:ss
 per_page: 10
 pagination_dir: page
 
-search:
-  path: search.xml
-  field: post
-  format: html
-  limit: 10000
+# search:
+#   path: search.xml
+#   field: post
+#   format: html
+#   limit: 10000
+
+
+algolia:
+  applicationID: '825YYD4YJF'
+  indexName: 'siven.net'
+  chunkSize: 5000
+
+# Algolia Search
+algolia_search:
+  enable: true
+  hits:
+    per_page: 10
+  labels:
+    input_placeholder: Search for Posts
+    hits_empty: "We didn't find any results for the search: ${query}"
+    hits_stats: "${hits} results found in ${time} ms"
 
 
 html_minifier:
-  enable: true
+  enable: false
   ignore_error: false
   exclude:
 css_minifier:
-  enable: true
+  enable: false
   exclude:
     - '*.min.css'
 js_minifier:
-  enable: true
+  enable: false
   mangle: true
   output:
   compress:
   exclude:
     - '*.min.js'
 image_minifier:
-  enable: true
+  enable: false
   interlaced: false
   multipass: false
   optimizationLevel: 2
