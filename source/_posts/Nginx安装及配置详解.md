@@ -1,11 +1,10 @@
 ---
 title: Nginx安装及配置详解
 tags:
-  - Linux
   - CentOS
   - Nginx
 categories:
-  - Linux
+  - Nginx
 abbrlink: 3347f9ca
 date: 2018-01-05 12:00:38
 ---

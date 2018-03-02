@@ -1,12 +1,11 @@
 ---
 title: Tomcat + Nginx 负载均衡配置详解
 tags:
-  - Linux
   - CentOS
   - Nginx
   - Tomcat
 categories:
-  - Linux
+  - Nginx
 alink: centos-install-nginx
 abbrlink: 8bcfa124
 date: 2018-01-06 13:00:38

@@ -6,10 +6,9 @@ tags:
   - Tomcat
   - Nginx
   - SSL
-  - JAVA
 alink: nginx-ssl-redirect-problem
 categories:
-  - JAVA
+  - Nginx
 ---
 
 
