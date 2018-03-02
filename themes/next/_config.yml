@@ -485,7 +485,7 @@ algolia_search:
     per_page: 10
   labels:
     input_placeholder: Search
-    hits_empty: "没有搜索到任何结果"
+    hits_empty: "没有搜索到任何文章"
     hits_stats: "找到了 ${hits} 篇相关的文章"
 
 
