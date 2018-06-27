@@ -35,6 +35,7 @@ Options:
         ‐‐no‐trunc 不截断输出
     ‐q, ‐‐quiet 只显示镜像编号
 ```
+<!-- more -->
 
 ## 删除镜像
 ```bash
@@ -164,6 +165,7 @@ Options:
 ```
 
 - 示例
+
 ```
 docker logs -t -f --tail=500 PID
 ```
@@ -187,6 +189,7 @@ Options:
 ```
 
 - 示例
+
 ```bash
 ## 首先获取容器的pid
 docker inspect --format "{{.State.Pid}}" 容器名
@@ -194,7 +197,7 @@ docker inspect --format "{{.State.Pid}}" 容器名
 nsenter --target 进程号(Pid) --mount --uts --ipc --net --pid
 ```
 
-### 小技巧
+- 小技巧
 创建一个快速进入容器的脚本
 
 - 创建脚本

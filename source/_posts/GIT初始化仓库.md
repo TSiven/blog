@@ -30,6 +30,8 @@ git commit -m "add README"
 git push -u origin master
 ```
 
+<!-- more -->
+
 ### 已存在的文件夹
 ```
 cd existing_folder
