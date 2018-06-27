@@ -1,16 +1,14 @@
 ---
 title: GIT初始化仓库
 tags:
-  - git
+  - Git
 categories:
-  - git
+  - Git
 alink: git-init-repository
 abbrlink: b3ff4f99
 date: 2018-06-27 09:44:13
 ---
 
-
-# 提交代码到GIT仓库
 
 ## 命令行指令
 

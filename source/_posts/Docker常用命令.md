@@ -3,7 +3,7 @@ title: Docker常用命令
 tags:
   - docker
 categories:
-  - docker
+  - Docker
 alink: docker-command
 abbrlink: 29dc6fe8
 date: 2018-06-27 13:58:29
@@ -25,6 +25,7 @@ docker pull mysql:latest #latest:是指镜像最高版本号
 ```bash
 docker images
 ```
+<!-- more -->
 
 ## 查看镜像构建过程
 ```bash
@@ -36,7 +37,7 @@ Options:
         ‐‐no‐trunc 不截断输出
     ‐q, ‐‐quiet 只显示镜像编号
 ```
-<!-- more -->
+
 
 ## 删除镜像
 ```bash
@@ -79,29 +80,28 @@ Options:
     --name 给容器取名
 ```
 
-### 示例
-
-```bash
-docker run mysql:latest
-```
-
 - 随机映射端口
+
 ```bash
 docker run -d -P --name mynginx nginx
 ```
 - 指定映射端口
+
 ```bash
 docker run -d -p 8080:80 --name mynginx nginx
 ```
 - 映射宿主机文件目录
+
 ```bash
 docker run -it --name volume-test1 -h nginx -v /data centos
 ```
 - 查看宿主机文件目录
+
 ```bash
 docker inspect --format "{{.Mounts}}" volume-test1
 ```
 - 映射宿主机指定文件目录
+
 ```bash
 docker run -it --name volume-test2 -h nginx -v /root/blog:/root/blog centos
 ```
@@ -198,28 +198,6 @@ docker inspect --format "{{.State.Pid}}" 容器名
 nsenter --target 进程号(Pid) --mount --uts --ipc --net --pid
 ```
 
-- 小技巧
-创建一个快速进入容器的脚本
-
-- 创建脚本
-```
-vim in.sh
-```
-
-- 内容如下
-```bash
-#!/bin/bash
-CNAME=$1
-CPID=$(docker inspect --format "{{.State.Pid}}" $CNAME)
-nsenter --target "$CPID" --mount --uts --ipc --net --pid
-```
-
-- 使用方式
-```bash
-./in.sh mynginx
-```
-
-
 ### 查看网络配置
 ```bash
 docker inspect ‐‐format '{{.NetworkSettings}}' 容器ID
@@ -233,27 +211,6 @@ docker inspect ‐‐format '{{.NetworkSettings.IPAddress}}' 容器ID
 docker inspect ‐‐format='{{.Name}} ‐ {{range .NetworkSettings.Networks}}{{.IPAddress}}
 {{end}}' $(docker ps ‐aq)
 ```
-# Docker容器开机自动启动
-在使用`docker run`启动容器时，使用`–restart`参数来设置：
-```bash
-docker run ‐m 512m ‐‐memory‐swap 1G ‐it ‐p 58080:8080 ‐‐restart=always ‐‐name bvrfis ‐‐
-volumes‐from logdata mytomcat:4.0 /root/run.sh
-```
-- 命令说明：
-    –restart具体参数值详细信息：
-    no - 容器退出时，不重启容器；
-    on-failure - 只有在非0状态退出时才从新启动容器；
-    always - 无论退出状态是如何，都重启容器。
-
-如果创建时未指定 `–restart=always` ,可通过`update` 命令设置
-```bash
-docker update ‐‐restart=always xxx
-```
-还可以在使用 `on-failure` 策略时，指定Docker将尝试重新启动容器的最大次数。默认情况下，Docker将尝试永远重新
-启动容器。
-```bash
-sudo docker run ‐‐restart=on‐failure:10 redis
-```
 
 # Docker容器进入的4种方式
 
@@ -266,7 +223,7 @@ sudo docker run ‐‐restart=on‐failure:10 redis
 所以大多数情况最好还是使用Docker原生方法，Docker目前主要提供了`docker exec`和`docker attach`两个命
 令。
 
-## Docker attach
+## docker attach
 Docker attach可以attach到一个已经运行的容器的`stdin`，然后进行命令执行的动作。
 但是需要注意的是，如果从这个`stdin`中`exit`，会`导致容器停止`。
 
@@ -280,7 +237,7 @@ sudo docker run ‐itd ubuntu:14.04 /bin/bash
 sudo docker attach 44fc0f0582d9
 ```
 
-## Docker exec
+## docker exec
 关于-i、-t参数
 - -i
 可以看出只用-i时，由于没有分配伪终端，看起来像pipe执行一样。但是执行结果、命令返回值都可以正确
@@ -319,4 +276,47 @@ docker stop $(docker ps -q) & docker rm $(docker ps -aq)
 docker rmi $(docker images -f "dangling=true" -q)
 ```
 
+## 快速进入容器脚本
 
+- 创建脚本
+
+```
+vim in.sh
+```
+
+- 内容如下
+
+```bash
+#!/bin/bash
+CNAME=$1
+CPID=$(docker inspect --format "{{.State.Pid}}" $CNAME)
+nsenter --target "$CPID" --mount --uts --ipc --net --pid
+```
+
+- 使用方式
+
+```bash
+./in.sh mynginx
+```
+
+## 容器开机自动启动
+在使用`docker run`启动容器时，使用`–restart`参数来设置：
+```bash
+docker run ‐m 512m ‐‐memory‐swap 1G ‐it ‐p 58080:8080 ‐‐restart=always ‐‐name bvrfis ‐‐
+volumes‐from logdata mytomcat:4.0 /root/run.sh
+```
+- 命令说明：
+    –restart具体参数值详细信息：
+    no - 容器退出时，不重启容器；
+    on-failure - 只有在非0状态退出时才从新启动容器；
+    always - 无论退出状态是如何，都重启容器。
+
+如果创建时未指定 `–restart=always` ,可通过`update` 命令设置
+```bash
+docker update ‐‐restart=always xxx
+```
+还可以在使用 `on-failure` 策略时，指定Docker将尝试重新启动容器的最大次数。默认情况下，Docker将尝试永远重新
+启动容器。
+```bash
+sudo docker run ‐‐restart=on‐failure:10 redis
+```
