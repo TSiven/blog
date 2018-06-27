@@ -36,7 +36,9 @@ date: 2018-01-05 12:00:38
 4. make & make install
 
 ```bash
-tar -zxcf pcre-8.38.tar.bz2
+yum install bzip2 -y
+bzip2 -d pcre-8.38.tar.bz2
+tar -xf pcre-8.38.tar
 cd pcre-8.38
 sudo ./configure --prefix=/usr/local/pcre
 sudo make
@@ -88,6 +90,20 @@ sudo make
 sudo make install
 ```
 >若安装时找不到上述依赖模块，使用--with-openssl=< openssl_dir>、--with-pcre=< pcre_dir>、--with-zlib=< zlib_dir>指定依赖的模块目录 (模块源码的安装包目录，而非安装后的目录)。
+
+## 可能遇到的问题
+```
+configure: error: You need a C++ compiler for C++ support.
+make[1]: *** [/root/tools/pcre-8.38/Makefile] Error 1
+make[1]: Leaving directory `/root/tools/nginx-1.13.12'
+make: *** [install] Error 2
+```
+
+### 解决办法
+安装gcc, gcc-c++ lib 即可
+```
+yum install -y gcc gcc-c++
+```
 
 
 # 启动Nginx
