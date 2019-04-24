@@ -20,6 +20,8 @@ mkdir /data/mysql/
 vim /data/mysql/conf/my.cnf
 ```
 
+<!-- more -->
+
 该文件为mysql配置文件，内容如下：
 ```     
 [client]
@@ -38,18 +40,18 @@ tmpdir = /tmp
 default-storage-engine=INNODB 
 character-set-server=utf8
 collation-server = utf8_general_ci 
-#sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
 
-#innodb_force_recovery= 1
 ```
 
 ### 3. 拉取mysql镜像：
+
 ```
 docker pull mysql:5.6
-``` 
+```
 
 ### 4. 创建并运行mysql容器：
+
 ```
 docker run \
     --name mysql \
