@@ -264,7 +264,7 @@ docker在容器内构建的时候，如果出现权限不够什么的。可以�
 sudo chmod 777 /var/run/docker.sock
 或者
 usermod -a -G docker jenkin
-``` 
+```
 
 ### 4. 访问jenkins
 
