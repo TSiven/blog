@@ -257,7 +257,9 @@ docker run \
 - jenkins:2.89.4: 镜像名称
 
 **注意**
+
 docker在容器内构建的时候，如果出现权限不够什么的。可以在宿主机中使用以下两种方式：
+
 ```
 sudo chmod 777 /var/run/docker.sock
 或者
@@ -265,15 +267,20 @@ usermod -a -G docker jenkin
 ``` 
 
 ### 4. 访问jenkins
+
 ```
 http://172.16.200.111:8080/ 
 ```
+
 ## 六、mongo
 ### 1. 拉取mongo镜像：
+
 ```
 docker pull mongo:3.4.1
 ```
+
 ### 2. 创建并运行mongo容器： 
+
 ```
 docker run \
     --name mongo \
@@ -295,6 +302,7 @@ docker run \
 - mongo:3.4.1: 镜像名称
 
 ### 3. 创建账号密码：
+
 ```
 docker exec -it mongo mongo admin
 
