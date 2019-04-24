@@ -259,9 +259,9 @@ docker run \
 **注意**
 docker在容器内构建的时候，如果出现权限不够什么的。可以在宿主机中使用以下两种方式：
 ```
-$ sudo chmod 777 /var/run/docker.sock
+sudo chmod 777 /var/run/docker.sock
 或者
-$ usermod -a -G docker jenkin
+usermod -a -G docker jenkin
 ``` 
 
 ### 4. 访问jenkins
@@ -296,7 +296,8 @@ docker run \
 
 ### 3. 创建账号密码：
 ```
-$ docker exec -it mongo mongo admin
+docker exec -it mongo mongo admin
+
 connecting to: admin
 > db.createUser({ user: 'root', pwd: 'hongte888', roles: [ { role: "root", db: "admin" } ] });
 Successfully added user: {
